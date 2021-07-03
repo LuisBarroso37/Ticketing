@@ -18,7 +18,7 @@ app.use(express.json());
 app.use(
   cookieSession({
     signed: false,
-    secure: process.env.NODE_ENV !== 'test', // Make sure that we can make requests using http when testing
+    secure: false, // Make sure that we can make requests using http when testing
   })
 );
 app.use(currentUser);
