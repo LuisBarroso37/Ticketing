@@ -1,14 +1,15 @@
 import { IncomingMessage } from 'node:http';
 import axios from 'axios';
 
-// Local environment
-// baseURL: 'http://ingress-nginx-controller.ingress-nginx.svc.cluster.local'
+// Production url
+// baseURL: 'http://www.ticketing-app.shop/'
 
 const buildClient = (req?: IncomingMessage) => {
   // If we are on the server, we need to add the domain (base url) for ingress-nginx
   if (typeof window === 'undefined') {
     return axios.create({
-      baseURL: 'http://www.ticketing-app.shop/',
+      baseURL:
+        'http://ingress-nginx-controller.ingress-nginx.svc.cluster.local',
       headers: req ? req.headers : null,
     });
   } else {
