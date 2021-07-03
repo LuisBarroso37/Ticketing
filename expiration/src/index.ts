@@ -3,7 +3,6 @@ import { natsClient } from './nats-client';
 
 // Function that connects to MongoDB database and starts Express server
 const start = async () => {
-  console.log('starting up');
   if (!process.env.NATS_CLUSTER_ID) {
     throw new Error('NATS_CLUSTER_ID must be defined');
   }
