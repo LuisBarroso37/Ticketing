@@ -3,6 +3,7 @@ import { app } from './app';
 
 // Function that connects to MongoDB database and starts Express server
 const start = async () => {
+  console.log('starting up');
   if (!process.env.JWT_KEY) {
     throw new Error('JWT_KEY must be defined');
   }
